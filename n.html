@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Test</title> 
+</head> 
+<body> 
+<label>Change value: 
+<input id="param" type="text" name="length"> 
+</label> 
+<canvas id="rect"></canvas> 
+<script type="text/javascript"> 
+const canvasRect = document.getElementById('rect'); 
+canvasRect.width = innerWidth; 
+canvasRect.height = innerHeight; 
+const context = canvasRect.getContext('2d'); 
+document.getElementById('param').addEventListener('input', (event) =>{ 
+context.fillRect(200, 200, event.target.value * 4, event.target.value * 2); 
+setTimeout(function(){ 
+context.clearRect(200, 200, event.target.value * 4, event.target.value * 2); 
+}, 1000); 
+}); 
+</script> 
+</body> 
+</html>
